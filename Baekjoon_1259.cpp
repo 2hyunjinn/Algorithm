@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	while(1){
-    string input;
+    		string input;
 		int flag = 0, i;
 		cin >> input;
 		if (input == "0")
