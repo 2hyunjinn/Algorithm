@@ -19,7 +19,7 @@ void get_time() {
 /* 최소 시간 구하기 */
 int get_mintime() {
 	get_time();
-	if (min_v - max_v < 0) return 0;
+	if (min_v - max_v <= 0) return 0;
 	else return (min_v - max_v);
 }
 int main() {
