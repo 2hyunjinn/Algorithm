@@ -17,6 +17,7 @@ int select_menu() {
     scanf("%d", &menu);
     return menu;
 }
+
 template <typename T>
 struct Node {
 private:
@@ -51,12 +52,11 @@ public:
         right = _right;
     }
 
-    // is leaf node?
     bool isLeaf() {
         return left == nullptr && right == nullptr;
     }
 
-    // Node 멤버함수로 순환탐색 구현 (ㅎㅎ)
+    // Node 멤버함수로 순환탐색 구현
     Node* search(T key) {
         if (key == data)                         // key == 노드의 data
             return this;
@@ -88,7 +88,7 @@ public:
         return root;
     }
 
-    // 전위 순회(Pre-order Traversal)
+    // 전위 순회
     void preorder() {
         preorder(root);
     }
@@ -110,15 +110,6 @@ public:
 template <typename T>
 class BinarySearchTree : public BinaryTree<T> {
 private:
-    // 탐색 (순환)
-    Node<T>* searchRecur(Node<T>* node, T key) {
-        if (node == NULL) return NULL;
-
-        if (key == node->getData()) return node;     // key == root 노드의 data
-        else if (key < node->getData()) return searchRecur(node->getLeft(), key);    // key < root 노드의 data
-        else if (key > node->getData()) return searchRecur(node->getRight(), key);   // key > root 노드의 data
-    }
-
     // 탐색 (반복)
     Node<T>* searchIter(Node<T>* node, T key) {
         while (node != NULL) {
@@ -296,6 +287,7 @@ int main() {
         else if (menu == 4) {
             printf("출력 결과>> ");
             tree.preorder();
+            printf("\n");
         }
     }
     return 0;
