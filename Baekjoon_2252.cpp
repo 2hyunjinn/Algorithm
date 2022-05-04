@@ -20,8 +20,7 @@ void Topology_sort(void) {
         printf("%d ", cur);
         for (int i = 0; i < graph[cur].size(); i++) {
             arr[graph[cur][i]]--;
-            if (!arr[graph[cur][i]])
-                q.push(graph[cur][i]);
+            if (!arr[graph[cur][i]]) q.push(graph[cur][i]);
         }
     }
 }
@@ -30,7 +29,7 @@ int main() {
     scanf("%d%d", &n, &m);
     for (int i = 0; i < m; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d%d",&a,&b);
         graph[a].push_back(b);
         arr[b]++;
     }
